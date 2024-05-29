@@ -11,7 +11,7 @@ module Fireblocks
         new(path: path).get(body)
       end
 
-      def put(path:, body:)
+      def put(path:, body: {})
         new(path: path).put(body)
       end
 
