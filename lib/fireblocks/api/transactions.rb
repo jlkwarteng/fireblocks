@@ -20,6 +20,29 @@ module Fireblocks
           Fireblocks::Request.post(body: body, path: '/v1/transactions')
         end
 
+        def from_user_vault_to_central_vault(
+          amount:,
+          asset_id:,
+          destination_id:,
+          source_id:,
+          tag: nil
+        )
+
+        body = {
+            amount: amount,
+            assetId: asset_id,
+            source: {
+              type: 'VAULT_ACCOUNT',
+              id: source_id
+            },
+            destination: {
+              type: 'VAULT_ACCOUNT',
+              id: destination_id
+            }
+          }
+          create(body)
+        end
+
         def from_vault_to_external(
           amount:,
           asset_id:,
